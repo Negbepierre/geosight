@@ -3,10 +3,13 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 app = Flask(__name__)
 CORS(app)
+
+from routes.audit import audit_bp
+app.register_blueprint(audit_bp, url_prefix="/api/audit")
 
 @app.route("/api/health")
 def health():
