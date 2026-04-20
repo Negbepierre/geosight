@@ -2,6 +2,7 @@ import { useState } from 'react'
 import AuditForm from './components/AuditForm'
 import ScoreCard from './components/ScoreCard'
 import QueryBreakdown from './components/QueryBreakdown'
+import ActionPlan from './components/ActionPlan'
 import { runAudit } from './services/api'
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
         <div style={{ paddingTop: '32px' }}>
           <ScoreCard report={report} />
           <QueryBreakdown queryBreakdown={report.query_breakdown} />
+          <ActionPlan actionPlan={report.action_plan} />
         </div>
       )}
 
