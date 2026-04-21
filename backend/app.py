@@ -6,7 +6,15 @@ import os
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 app = Flask(__name__)
-CORS(app)
+
+CORS(app, resources={
+    r"/api/*": {
+        "origins": [
+            "https://geosightpierre.netlify.app",
+            "http://localhost:5173"
+        ]
+    }
+})
 
 from routes.audit import audit_bp
 app.register_blueprint(audit_bp, url_prefix="/api/audit")
