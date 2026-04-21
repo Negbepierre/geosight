@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:5001/api'
+const BASE_URL = 'https://geosight.onrender.com/api'
 
 export const runAudit = async (data) => {
   const response = await axios.post(`${BASE_URL}/audit/run`, data)
