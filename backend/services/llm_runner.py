@@ -77,7 +77,7 @@ def query_chatgpt(query):
 def query_gemini(query):
     try:
         start = time.time()
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-2.0-flash")
         full_prompt = f"{SYSTEM_PROMPT}\n\n{query}"
         response = model.generate_content(full_prompt)
         elapsed = round(time.time() - start, 2)
