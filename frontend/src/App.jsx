@@ -15,7 +15,6 @@ function App() {
     setLoading(true)
     setError(null)
     setReport(null)
-
     try {
       const data = await runAudit(formData)
       setReport(data.report)
@@ -32,28 +31,34 @@ function App() {
   }
 
   return (
-    <div style={{ fontFamily: 'sans-serif', minHeight: '100vh', backgroundColor: '#f9f9f9' }}>
+    <div style={{ fontFamily: 'inherit', minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
 
       <div style={{
-        borderBottom: '1px solid #eee',
-        padding: '16px 40px',
-        backgroundColor: '#fff',
+        borderBottom: '1px solid #eeeeee',
+        padding: '16px 20px',
+        backgroundColor: '#ffffff',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        position: 'sticky',
+        top: 0,
+        zIndex: 10
       }}>
-        <h1 style={{ margin: 0, fontSize: '20px', fontWeight: '600' }}>GEOsight</h1>
+        <h1 style={{ margin: 0, fontSize: '18px', fontWeight: '700', color: '#111111' }}>
+          GEOsight
+        </h1>
         {report && (
           <button
             onClick={handleReset}
             style={{
               fontSize: '13px',
               padding: '8px 16px',
-              border: '1px solid #ddd',
+              border: '1.5px solid #dddddd',
               borderRadius: '8px',
-              backgroundColor: '#fff',
+              backgroundColor: '#ffffff',
               cursor: 'pointer',
-              color: '#333'
+              color: '#333333',
+              fontWeight: '500'
             }}
           >
             New Audit
@@ -66,13 +71,19 @@ function App() {
       )}
 
       {error && (
-        <p style={{ textAlign: 'center', color: 'red', marginTop: '20px' }}>
+        <p style={{
+          textAlign: 'center',
+          color: '#dc2626',
+          marginTop: '20px',
+          fontSize: '14px',
+          padding: '0 20px'
+        }}>
           {error}
         </p>
       )}
 
       {report && (
-        <div style={{ paddingTop: '32px' }}>
+        <div style={{ paddingTop: '24px', paddingBottom: '40px' }}>
           <ScoreCard report={report} />
           <QueryBreakdown queryBreakdown={report.query_breakdown} />
           <ActionPlan actionPlan={report.action_plan} />

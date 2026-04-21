@@ -21,12 +21,10 @@ function ScoreCard({ report }) {
   
         <div style={styles.overallCard}>
           <p style={styles.companyName}>{company_name}</p>
-          <div
-            style={{
-              ...styles.bigScore,
-              color: getScoreColor(visibility_summary.overall_score)
-            }}
-          >
+          <div style={{
+            ...styles.bigScore,
+            color: getScoreColor(visibility_summary.overall_score)
+          }}>
             {visibility_summary.overall_score}
             <span style={styles.outOf}>/100</span>
           </div>
@@ -48,26 +46,22 @@ function ScoreCard({ report }) {
             return (
               <div key={model} style={styles.modelCard}>
                 <p style={styles.modelName}>{model}</p>
-                <p
-                  style={{
-                    ...styles.modelScore,
-                    color: getScoreColor(stats.avg_score)
-                  }}
-                >
+                <p style={{
+                  ...styles.modelScore,
+                  color: getScoreColor(stats.avg_score)
+                }}>
                   {stats.mention_rate}%
                 </p>
                 <p style={styles.modelLabel}>mention rate</p>
                 <div style={styles.barTrack}>
-                  <div
-                    style={{
-                      ...styles.barFill,
-                      width: `${stats.mention_rate}%`,
-                      backgroundColor: getScoreColor(stats.mention_rate)
-                    }}
-                  />
+                  <div style={{
+                    ...styles.barFill,
+                    width: `${stats.mention_rate}%`,
+                    backgroundColor: getScoreColor(stats.mention_rate)
+                  }} />
                 </div>
                 <p style={styles.modelMeta}>
-                  {stats.mentions} of {stats.total_queries} queries
+                  {stats.mentions} of {stats.total_queries}
                 </p>
               </div>
             )
@@ -80,89 +74,87 @@ function ScoreCard({ report }) {
   
   const styles = {
     container: {
-      maxWidth: '720px',
+      maxWidth: '680px',
       margin: '0 auto',
-      padding: '0 20px 40px'
+      padding: '0 16px 24px'
     },
     overallCard: {
-      backgroundColor: '#fff',
-      border: '1px solid #eee',
-      borderRadius: '12px',
-      padding: '32px',
+      backgroundColor: '#ffffff',
+      border: '1px solid #eeeeee',
+      borderRadius: '16px',
+      padding: '28px 24px',
       textAlign: 'center',
-      marginBottom: '16px'
+      marginBottom: '12px'
     },
     companyName: {
-      fontSize: '14px',
-      color: '#666',
-      marginBottom: '8px',
-      margin: '0 0 8px'
+      fontSize: '13px',
+      color: '#888888',
+      marginBottom: '4px'
     },
     bigScore: {
-      fontSize: '72px',
+      fontSize: '64px',
       fontWeight: '700',
       lineHeight: '1',
-      margin: '16px 0 8px'
+      margin: '12px 0 8px'
     },
     outOf: {
-      fontSize: '24px',
+      fontSize: '22px',
       fontWeight: '400',
-      color: '#999'
+      color: '#aaaaaa'
     },
     scoreLabel: {
-      fontSize: '16px',
-      color: '#333',
-      margin: '8px 0 4px'
+      fontSize: '15px',
+      color: '#333333',
+      margin: '6px 0 4px'
     },
     meta: {
       fontSize: '13px',
-      color: '#999',
+      color: '#aaaaaa',
       margin: '4px 0 0'
     },
     modelGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '12px'
+      gap: '10px'
     },
     modelCard: {
-      backgroundColor: '#fff',
-      border: '1px solid #eee',
+      backgroundColor: '#ffffff',
+      border: '1px solid #eeeeee',
       borderRadius: '12px',
-      padding: '20px',
+      padding: '16px 12px',
       textAlign: 'center'
     },
     modelName: {
-      fontSize: '13px',
-      fontWeight: '500',
-      color: '#333',
+      fontSize: '12px',
+      fontWeight: '600',
+      color: '#333333',
       textTransform: 'capitalize',
-      margin: '0 0 8px'
+      margin: '0 0 6px'
     },
     modelScore: {
-      fontSize: '32px',
+      fontSize: '28px',
       fontWeight: '700',
       margin: '0 0 2px'
     },
     modelLabel: {
-      fontSize: '11px',
-      color: '#999',
-      margin: '0 0 12px'
+      fontSize: '10px',
+      color: '#aaaaaa',
+      margin: '0 0 10px'
     },
     barTrack: {
-      height: '6px',
+      height: '5px',
       backgroundColor: '#f0f0f0',
       borderRadius: '3px',
       overflow: 'hidden',
-      marginBottom: '8px'
+      marginBottom: '6px'
     },
     barFill: {
       height: '100%',
-      borderRadius: '3px',
-      transition: 'width 0.4s ease'
+      borderRadius: '3px'
     },
     modelMeta: {
       fontSize: '11px',
-      color: '#999',
+      color: '#aaaaaa',
       margin: '0'
     }
   }
