@@ -3,7 +3,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -24,5 +24,5 @@ def health():
     return {"status": "ok", "service": "geosight-api"}
 
 if __name__ == "__main__":
-    port = int(os.getenv("FLASK_PORT", 5001))
-    app.run(debug=True, port=port)
+    port = int(os.getenv("PORT", os.getenv("FLASK_PORT", 5001)))
+    app.run(host="0.0.0.0", port=port)
